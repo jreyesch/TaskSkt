@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>List all Items</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <td>
+        <table>
+            <tbody>
+            <tr >
+                <td></td>
+                <td>Product</td>
+                <td>Brand</td>
+                <td>Description</td>
+                <td>Price</td>
+                <td>Units</td>
+            </tr>
+            <tr th:each="item,itemStat : ${list}">
+                <td th:text="${itemStat.count}" />
+                <td th:text="${item.getTittle()}" />
+                <td th:text="${item.getBrand()}" />
+                <td th:text="${item.getDescription()}" />
+                <td th:text="${item.getUnitPrice()}" />
+                <td th:text="${item.getAvailableUnits()}" />
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</body>
+</html>

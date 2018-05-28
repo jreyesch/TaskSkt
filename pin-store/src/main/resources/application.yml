@@ -1,2 +1,7 @@
 logging:
     file: pinStore.log
+
+spring:
+
+    rabbitmq:
+      port: 5671

@@ -14,7 +14,6 @@ public class PersistenceServiceApplication {
 		return new MessageListenerAdapter(receiver, "receiveMessage");
 	}
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(PersistenceServiceApplication.class, args);
 	}

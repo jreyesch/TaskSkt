@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 public class Config {
 
     @Bean
-    public Queue hello() {
+    public Queue createItemQueue() {
         return new Queue("create-item");
     }
 

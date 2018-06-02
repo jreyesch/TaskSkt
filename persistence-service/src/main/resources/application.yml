@@ -1,2 +1,13 @@
 server:
     port: 8081
+
+spring:
+  rabbitmq:
+    port: 5671
+  datasource:
+    url: jdbc:mysql://localhost:6603/pin_store?useSSL=false
+    username: test
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: none

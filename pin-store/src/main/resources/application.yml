@@ -1,7 +1,7 @@
 logging:
-    file: pinStore.log
+    file: target/pinStore.log
+    level: debug
 
 spring:
-
     rabbitmq:
       port: 5671

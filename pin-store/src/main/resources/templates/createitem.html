@@ -7,6 +7,7 @@
     <body>
         <h1>Capture the new items data</h1>
         <form action="#" th:action="@{/createitem}" th:object="${item}" method="post">
+            <p>Id: <input type="text" th:field="*{id}"/></p>
             <p>Tittle: <input type="text" th:field="*{tittle}"/></p>
             <p>Brand: <input type="text" th:field="*{brand}"/></p>
             <p>Description: <input type="text" th:field="*{description}"/></p>
@@ -14,5 +15,7 @@
             <p>Quantity: <input type="number" th:field="*{availableUnits}"/></p>
             <p><input type="submit" value="Submit"/> <input type="reset" value="Clear All"/></p>
         </form>
+        <p>Show all items <a href="/listallitems">here</a></p>
+        <p><a href="/">Go Home</a></p>
     </body>
 </html>

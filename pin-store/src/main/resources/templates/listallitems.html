@@ -9,7 +9,8 @@
         <table>
             <tbody>
             <tr >
-                <td></td>
+                <td>Count</td>
+                <td>Id</td>
                 <td>Product</td>
                 <td>Brand</td>
                 <td>Description</td>
@@ -18,6 +19,7 @@
             </tr>
             <tr th:each="item,itemStat : ${list}">
                 <td th:text="${itemStat.count}" />
+                <td th:text="${item.id}" />
                 <td th:text="${item.getTittle()}" />
                 <td th:text="${item.getBrand()}" />
                 <td th:text="${item.getDescription()}" />
@@ -26,6 +28,8 @@
             </tr>
             </tbody>
         </table>
+        <p>Create new item item <a href="/createitem">here</a></p>
+        <p><a href="/">Go Home</a></p>
     </td>
 </body>
 </html>

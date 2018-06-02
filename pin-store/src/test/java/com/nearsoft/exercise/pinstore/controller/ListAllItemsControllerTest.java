@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class ListAllItemsControllerTest {
 
     @Autowired
-    private ListAllItemsController controller;
+    private ItemController controller;
 
     @Before
     public void setUp() throws Exception {

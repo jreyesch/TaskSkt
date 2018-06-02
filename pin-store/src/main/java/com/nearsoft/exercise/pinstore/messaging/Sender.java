@@ -1,24 +1,29 @@
 package com.nearsoft.exercise.pinstore.messaging;
 
-import org.springframework.amqp.core.Queue;
+import com.nearsoft.exercise.pinstorecommons.entities.Item;
+import com.nearsoft.exercise.pinstorecommons.json.JsonConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Sender {
+    private static final Logger logger = LoggerFactory.getLogger(Sender.class);
+    private JsonConverter jSon;
 
     @Autowired
     private RabbitTemplate template;
 
-    @Autowired
-    private Queue queue;
+    public void send(Item item) {
+        jSon = JsonConverter.getInstance();
+        this.template.convertAndSend("create-item", jSon.toJson(item));
+        logger.info(" >>> Sent: {}",jSon.toJson(item));
+    }
 
-    @Scheduled(fixedDelay = 1000, initialDelay = 500)
-    public void send() {
-        String message = "Hello World!";
-        this.template.convertAndSend(queue.getName(), message);
-        System.out.println(" [x] Sent '" + message + "'");
+    public void requestAllItems(){
+        this.template.convertAndSend("find-all", "requestAllItems");
+        System.out.println(" >>> Sent requestAllItems'");
     }
 }

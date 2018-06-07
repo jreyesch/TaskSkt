@@ -11,3 +11,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+queue:
+    create: create-item
+    findAllQueue: find-all
+    findAllResponse: find-all-response

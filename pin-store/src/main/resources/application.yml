@@ -5,3 +5,8 @@ logging:
 spring:
     rabbitmq:
       port: 5671
+
+queue:
+    create: create-item
+    findAllQueue: find-all
+    findAllResponse: find-all-response

@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -18,7 +16,6 @@ public class Sender {
     @Autowired
     private RabbitTemplate template;
 
-    @Scheduled(fixedDelay = 1000, initialDelay = 500)
     public void send(Item item) {
         jSon = JsonConverter.getInstance();
         this.template.convertAndSend("create-item", jSon.toJson(item));
